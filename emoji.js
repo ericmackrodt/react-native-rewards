@@ -1,21 +1,17 @@
-import React from 'react';
-import { Animated } from 'react-native';
+import React from "react";
+import { Animated } from "react-native";
 
 export function EmojiItem({ emoji, translateX, translateY, opacity, rotateZ }) {
   const spinZ = rotateZ.interpolate({
     inputRange: [0, 10],
-    outputRange: ['0deg', '360deg'],
+    outputRange: ["0deg", "360deg"],
   });
   const itemStyle = {
     height: 18,
     width: 18,
     opacity,
-    transform: [
-      { translateX },
-      { translateY },
-      { rotateZ: spinZ },
-    ],
-    position: 'absolute',
+    transform: [{ translateX }, { translateY }, { rotateZ: spinZ }],
+    position: "absolute",
   };
   return (
     <Animated.View style={itemStyle}>
@@ -23,7 +19,6 @@ export function EmojiItem({ emoji, translateX, translateY, opacity, rotateZ }) {
     </Animated.View>
   );
 }
-
 
 export function generateEmojiItems(translations, count = 20, emojis) {
   const items = [];
